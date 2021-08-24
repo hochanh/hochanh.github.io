@@ -1,0 +1,13 @@
+title: rtk-search
+author: Mạnh Tài
+url: http://hochanh.github.io/rtk
+description: "rtk-search: http://hochanh.github.io/rtk"
+
+permalink: /rtk/:title/
+
+exclude:
+ - README.md
+ - CNAME
+
+gems:
+ - jekyll-redirect-from

@@ -1,0 +1,29 @@
+---
+layout: default
+type: index
+---
+
+<h1>{{ site.title }}</h1>
+<hr>
+
+
+<div id="search-box">
+	<input type="search" id="search-query" name="q" placeholder="Search kanji by keyword..." autocomplete="off">
+	<button type="submit" id="search-button">Search</button>
+	
+	<div id="search-results" style="display: none;">
+			<div class="entries"></div>
+	</div>
+</div>
+
+<hr>
+
+<nav class="pagination" role="navigation">
+	<a class="btn btn-blue" href="rtk1-v6/index.html">rtk1-v6</a>
+	<a class="btn btn-blue" href="rtk3-remain/index.html">rtk3-remain</a>
+</nav>
+
+<script src="assets/js/jquery.min.js"></script> 
+<script src="assets/js/lunr.min.js"></script>
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/search.js"></script>

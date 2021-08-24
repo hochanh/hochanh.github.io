@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ site.description }}">
+  <title>{% if page.kanji %}{{ page.kanji}} - {{ page.keyword }} - {% endif %}{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <link href="{% if page.type != 'index' %}../{% endif %}assets/img/favicon.ico" rel="icon">
+  <link href="{% if page.type != 'index' %}../{% endif %}assets/css/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div role="main" class="main">
+      
+    {{ content }}
+
+  </div>
+  <div id="foot">
+    <p>@ {{ site.time | date: "%Y" }} <a href="http://hochanh.github.io">Học hành</a></p>
+  </div>
+
+
+
+{% if page.type != 'index' %}
+  <script type="text/javascript" src="../assets/js/dmak.js"></script>
+  <script type="text/javascript" src="../assets/js/raphael-min.js"></script>
+  <script>
+    var dmak = new Dmak('{{ page.kanji }}', {'element': "draw"});
+    var p = document.getElementById("p");
+    p.onclick = function () {
+      dmak.eraseLastStrokes(1);
+    };
+    var s = document.getElementById("s");
+    s.onclick = function () {
+      dmak.pause();
+    };
+    var g = document.getElementById("g");
+    g.onclick = function () {
+      dmak.render();
+    };
+    var n = document.getElementById("n");
+    n.onclick = function () {
+      dmak.renderNextStrokes(1);
+    };
+    var r = document.getElementById("r");
+    r.onclick = function () {
+      dmak.erase();
+    };
+  </script>
+{% endif %}
+
+</body>
+</html>
