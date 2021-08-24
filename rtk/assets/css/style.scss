@@ -29,27 +29,27 @@ body {
 }
 
 .main {
-  margin-top: 1em;
+  margin-top: 1rem;
   max-width: $maxi;
   min-width: $mini;
   background: $color-background;
-  padding: 1em 1em;
+  padding: 1rem 1rem;
 
   @media screen and (min-width: $medi) {
     width: 100%;
-    margin: 2em auto 2em;
-    padding: 3em 4em;
+    margin: 2rem auto 2rem;
+    padding: 3rem 4rem;
   }
 }
 
 #foot{
-  margin-top: 1em;
+  margin-top: 1rem;
   max-width: $maxi;
   min-width: $mini;
   text-align: center;
   @media screen and (min-width: $medi) {
   width: 100%;
-  margin: 1em auto 2em;
+  margin: 1rem auto 2rem;
   }
 }
 
@@ -70,11 +70,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.7em;
+  font-size: 2.5rem;
+  margin-bottom: 0.7rem;
 
   * + & {
-    margin-top: 0.9em;
+    margin-top: 0.9rem;
   }
 }
 
@@ -83,33 +83,33 @@ h1 > a:visited {
 }
 
 h2 {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 
   * + & {
-    margin-top: 2em;
+    margin-top: 2rem;
   }
 }
 
 h3 {
-  font-size: 1.2em;
-  margin-bottom: 0.7em;
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
 
   * + & {
-    margin-top: 0.6em;
+    margin-top: 0.6rem;
   }
 }
 
 p {
-  line-height: 2em;
+  line-height: 2rem;
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 li {
-  line-height: 1.5em;
+  line-height: 1.5rem;
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 a {
@@ -183,7 +183,7 @@ a:hover,
 }
 
 .pagination {
-  margin: 1em auto 0em;
+  margin: 1rem auto 0;
   text-align: center;
 }
 
@@ -219,10 +219,11 @@ small {
 }
 
 hr {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   border: 0;
   border-top: 1px solid $color-secondary;
+  opacity: 0.5;
 }
 
 article {
@@ -235,8 +236,8 @@ article {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 blockquote {
@@ -246,18 +247,18 @@ blockquote {
 }
 
 table {
-  margin: 0em auto 1.7em;
+  margin: 0 auto 1.7rem;
   align: center;
 }
 
 th, td {
-  padding: 0.3em;
+  padding: 0.3rem;
 }
 
 .footnotes {
   border-top: 1px solid $color-secondary;
-  font-size: 0.7em;
-  margin-top: 3em;
+  font-size: 0.7rem;
+  margin-top: 3rem;
 }
 
 .left-arrow {
@@ -268,23 +269,23 @@ th, td {
   float: right;
 }
 
-/* Search box in index */
-
-#search-box {
-  margin: 5em;
-  text-align: center;
+#search-bar {
+  display: flex;
+  padding: 1rem 0;
+  justify-content: center;
+  align-items: center;
+  max-width: 20rem;
+  margin: auto;
 }
 
 #search-query {
+  padding: 0.5rem;
   height: 2rem;
-}
-
-#search-button {
-  height: 2rem;
+  width: 100%;
 }
 
 #search-results {
-  margin: 3em;
+  margin: 1rem auto 2rem;
 }
 
 #kanjiViewer {
