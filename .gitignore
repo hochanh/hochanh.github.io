@@ -1,6 +1,6 @@
 .DS_Store
 
 .Rproj.user
-.jekyll-cache
+.jekyll-*
 _code
 _site

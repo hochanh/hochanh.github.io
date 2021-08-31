@@ -29,7 +29,6 @@ body {
 }
 
 .main {
-  margin-top: 1rem;
   max-width: $maxi;
   min-width: $mini;
   background: $color-background;
@@ -146,6 +145,7 @@ a:hover,
   border-color: #222222;
   border-style: solid !important;
   border-width: 2px !important;
+  border-radius: 5px;
 }
 
 .btn.title {
@@ -282,6 +282,8 @@ th, td {
   padding: 0.5rem;
   height: 2rem;
   width: 100%;
+  border-radius: 5px;
+  border-width: 1px;
 }
 
 #search-results {
