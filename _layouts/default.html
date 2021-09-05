@@ -11,9 +11,7 @@
 
 <body>
   <div role="main" class="main">
-      
     {{ content }}
-
   </div>
   <div id="foot">
     <p>@ {{ site.time | date: "%Y" }} <a href="http://hochanh.github.io">Học hành</a></p>
@@ -45,6 +43,19 @@
     var r = document.getElementById("r");
     r.onclick = function () {
       dmak.erase();
+    };
+  </script>
+  <script>
+    document.onkeydown = function(e){
+      if (e.which == 37 && document.getElementsByClassName('left-arrow')) {
+        var prev = document.getElementsByClassName('left-arrow')[0].children[0].href;
+        location.href = prev;
+        e.preventDefault();
+      } else if (e.which == 39 && document.getElementsByClassName('right-arrow')) {
+        var next = document.getElementsByClassName('right-arrow')[0].children[0].href;
+        location.href = next;
+        e.preventDefault();
+      }
     };
   </script>
 {% endif %}
