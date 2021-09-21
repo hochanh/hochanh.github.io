@@ -1,275 +1,156 @@
 <!DOCTYPE html>
-
-<html lang=vi>
+<html lang="en">
   <head>
-		<meta charset="utf-8">
-    <title>HocHanh</title>
-    <link rel="stylesheet" type="text/css" href="assets/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/grid.css">
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <link href="assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HocHanh &middot; Experiments that not always work</title>
+    <style>
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    body {
+      line-height: 1;
+    }
+    ol, ul {
+      list-style: none;
+    }
+    blockquote, q {
+      quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    body {
+      color: rgb(31, 41, 55);
+      background-color: rgb(249, 250, 251);
+    }
+    h1 {
+      font-size: 1.5rem;
+      line-height: 3rem;
+      font-weight: medium;
+      opacity: 0.7;
+    }
+    h2 {
+      font-size: 1.25rem;
+      line-height: 2rem;
+      font-weight: medium;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.25rem;
+      opacity: 0.7;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    <script type="text/javascript" src="assets/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="assets/strftime.js"></script>
-    
-    <script>
-		
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    .content {
+      padding: 0.5rem;
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-		ga('create', 'UA-57521049-1', 'auto');
-		ga('send', 'pageview');
+    .contact {
+      margin-top: 2rem;
+      opacity: 0.7;
+    }
 
-		</script>
-    
-    <script type="text/javascript">
-    (function ($, undefined) {
+    .footer {
+      margin: 3rem 0 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.3;
+    }
 
-      // Put custom repo URL's in this object, keyed by repo name.
-      var repoUrls = {
-        "hsl": "http://hochanh.github.io/hsl/",
-        "rtk": "http://hochanh.github.io/rtk/",
-        "cap21": "http://hochanh.github.io/cap21/",
-        "amlich": "http://hochanh.github.io/amlich/"
-      };
+    .product-container {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 2rem;
+      padding: 1rem;
+    }
 
-      function repoUrl(repo) {
-        return repoUrls[repo.name] || repo.html_url;
-      }
+    .product-item {
+      border-radius: 1rem;
+      border: 1px solid #dadce0;
+      padding: 1rem;
+      font-size: 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      color: rgb(55, 65, 81);
+    }
 
-      // Put custom repo descriptions in this object, keyed by repo name.
-      var repoDescriptions = {
-      };
+    .product-item:hover {
+      background-color: rgb(243, 244, 246);
+      cursor: pointer;
+    }
 
-      function repoDescription(repo) {
-        return repoDescriptions[repo.name] || repo.description;
-      }
+    .logo {
+      width: 6rem;
+      height: 6rem;
+    }
 
-      function addRecentlyUpdatedRepo(repo) {
-        var $item = $("<li>");
-
-        var $name = $("<a>").attr("href", repo.html_url).text(repo.name);
-        $item.append($("<span>").addClass("name").append($name));
-
-        var $time = $("<a>").attr("href", repo.html_url + "/commits").text(strftime("%h %e, %Y", repo.pushed_at));
-        $item.append($("<span>").addClass("time").append($time));
-
-        $item.append('<span class="bullet">&sdot;</span>');
-
-        var $watchers = $("<a>").attr("href", repo.html_url + "/watchers").text(repo.watchers + " stargazers");
-        $item.append($("<span>").addClass("watchers").append($watchers));
-
-        $item.append('<span class="bullet">&sdot;</span>');
-
-        var $forks = $("<a>").attr("href", repo.html_url + "/network").text(repo.forks + " forks");
-        $item.append($("<span>").addClass("forks").append($forks));
-
-        $item.appendTo("#recently-updated-repos");
-      }
-
-      function addRepo(repo) {
-        var $item = $("<li>").addClass("repo grid-1 " + (repo.language || '').toLowerCase());
-        var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
-        $link.append($("<h2>").text(repo.name));
-        $link.append($("<h3>").text(repo.language));
-        $link.append($("<p>").text(repoDescription(repo)));
-        $item.appendTo("#repos");
-      }
-
-      function addRepos(repos, page) {
-        repos = repos || [];
-        page = page || 1;
-
-        var uri = "https://api.github.com/orgs/hochanh/repos?callback=?"
-                + "&per_page=100"
-                + "&page="+page;
-
-        $.getJSON(uri, function (result) {
-          if (result.data && result.data.length > 0) {
-            repos = repos.concat(result.data);
-            addRepos(repos, page + 1);
-          }
-          else {
-            $(function () {
-              $("#num-repos").text(repos.length);
-
-              // Convert pushed_at to Date.
-              $.each(repos, function (i, repo) {
-                repo.pushed_at = new Date(repo.pushed_at);
-
-                var weekHalfLife  = 1.146 * Math.pow(10, -9);
-
-                var pushDelta    = (new Date) - Date.parse(repo.pushed_at);
-                var createdDelta = (new Date) - Date.parse(repo.created_at);
-
-                var weightForPush = 1;
-                var weightForWatchers = 1.314 * Math.pow(10, 7);
-
-                repo.hotness = weightForPush * Math.pow(Math.E, -1 * weekHalfLife * pushDelta);
-                repo.hotness += weightForWatchers * repo.watchers / createdDelta;
-              });
-
-              // Sort by highest # of watchers.
-              repos.sort(function (a, b) {
-                if (a.hotness < b.hotness) return 1;
-                if (b.hotness < a.hotness) return -1;
-                return 0;
-              });
-
-              $.each(repos, function (i, repo) {
-                addRepo(repo);
-              });
-
-              // Sort by most-recently pushed to.
-              repos.sort(function (a, b) {
-                if (a.pushed_at < b.pushed_at) return 1;
-                if (b.pushed_at < a.pushed_at) return -1;
-                return 0;
-              });
-
-              $.each(repos.slice(0, 3), function (i, repo) {
-                addRecentlyUpdatedRepo(repo);
-              });
-            });
-          }
-        });
-      }
-      addRepos();
-
-      //get total number of Twitter members
-      function getNumMembers(page, numMembers) {
-        var page = page || 1;
-        var numMembers = numMembers || 0;
-        var membersUri = "https://api.github.com/orgs/hochanh/members?callback=?"
-          + "&per_page=100"
-          + "&page="+page;
-
-        $.getJSON(membersUri, function (result) {
-          if (result.data && result.data.length > 0) {
-            numMembers += result.data.length;
-            getNumMembers(page+1, numMembers);
-          } else {
-            $(function () {
-              $("#num-members").text(numMembers);
-            });
-          }
-        });
-      }
-      getNumMembers();
-
-      function randomItem(array) {
-        return array[Math.floor(Math.random() * array.length)];
-      }
-
-      var $flyzone;
-
-      function flyzone() {
-        if (!$flyzone) {
-          $flyzone = $("<div>").attr("id", "flyzone").prependTo(document.body);
-        }
-
-        return $flyzone;
-      }
-
-      var sizes = ["smaller", "small", "medium", "large", "fat"];
-
-      var sizeDimensions = {
-        "smaller": 50,
-        "small": 80,
-        "medium": 130,
-        "large": 200,
-        "fat": 300
-      };
-
-      function randomOpacity(threshold) {
-        var opacity = Math.random();
-
-        while (opacity < threshold) {
-          opacity = Math.random();
-        }
-
-        return opacity;
-      }
-
-      function makeLarry(sizeName, speed) {
-        var size = sizeDimensions[sizeName];
-        var top = Math.floor((flyzone().height() - size) * Math.random());
-
-        var $img = $("<img>")
-          .addClass("larry size-" + sizeName)
-          .attr("src", "assets/larry.png")
-          .attr("width", size)
-          .attr("height", size)
-          .css({
-            position: "absolute",
-            opacity: randomOpacity(0.4),
-            top: top,
-            left: -size
-          });
-
-        $img.prependTo(flyzone());
-
-        var left = flyzone().width() + size;
-
-        $img.animate({left: left}, speed, function () {
-          $img.remove();
-          makeRandomLarry();
-        });
-
-        return $img;
-      }
-
-      function makeRandomLarry() {
-        var size = randomItem(sizes);
-        var speed = Math.floor(Math.random() * 20000) + 15000;
-        return makeLarry(size, speed);
-      }
-
-      $(function () {
-        $("#logo").click(function () {
-          makeRandomLarry();
-        });
-      });
-
-      var match = (/\blarry(=(\d+))?\b/i).exec(window.location.search);
-
-      if (match) {
-        var n = parseInt(match[2]) || 20;
-
-        $(function () {
-          for (var i = 0; i < n; ++i) {
-            setTimeout(makeRandomLarry, Math.random() * n * 500);
-          }
-        });
-      }
-    })(jQuery);
-    </script>
+    </style>
   </head>
   <body>
-    <div id="wrapper" class="grid clearfix">
-      <div id="main" class="grid-1">
-        <div id="logo"><h1>HocHanh</h1></div>
-        <h1>Experiments that not always work.</h1>
-        <p><a href="https://github.com/hochanh">github.com/hochanh</a></p>
-      </div>
+    <main class="content">
+      <h1>HocHanh</h1>
+      <p class="desc">Experiments that not always work</p>
 
-      <div class="grid grid-3">
-        <div id="statistics" class="grid-1 alpha header">
-          <h1>Stats</h1>
-          <p>
-            <a href="https://github.com/hochanh/repositories"><span id="num-repos"><img src="assets/spinner.gif" /></span> public repos</a>
-          </p>
-        </div>
-
-        <div id="recently-updated" class="grid-2 omega header">
-          <h1>Recent update <a href="https://github.com/hochanh/repositories">View all</a></h1>
-          <ol id="recently-updated-repos"></ol>
-        </div>
-      </div>
-
-      <ol id="repos"></ol>
-    </div>
+      <section class="product-container">
+        <a class="product-item" href="https://hochanh.github.io/rtk">
+          <h2>RTK</h2>
+          <p>Kanji stories search engine</p>
+        </a>
+        <a class="product-item" href="https://github.com/plainlab/plainmerge">
+          <h2>PlainMerge</h2>
+          <p>Offline PDF mail merger</p>
+        </a>
+      </section>
+    </main>
+    <footer class="footer">
+      <a href="https://github.com/hochanh">GitHub</a>
+      &middot;
+      <a href="mailto:hh@manhtai.com">Email</a>
+    </footer>
   </body>
 </html>
