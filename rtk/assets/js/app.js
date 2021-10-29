@@ -23,16 +23,16 @@ $(function() {
       });
 
       if (!results.length) {
-        results = []
-        query = query.replace(/[a-zA-Z0-9]/g, "");
-
-        for(const c of query.split("")) {
-          if(docsMap[c]) {
-            results.push(docsMap[c])
-          }
-        }
+        results = query.replace(/[a-zA-Z0-9]/g, '')
+          .split('')
+          .map(function(kanji) {
+            return docsMap[kanji] ? docsMap[kanji] : null;
+          })
+          .filter(function(doc) { 
+            return doc !== null;
+          });
       }
-
+      
       entries.empty();
 
       if (results.length) {
