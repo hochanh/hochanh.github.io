@@ -23,7 +23,14 @@ $(function() {
       });
 
       if (!results.length) {
-        results = docsMap[query] ? [docsMap[query]] : [];
+        results = query.replace(/[a-zA-Z0-9]/g, '')
+          .split('')
+          .map(function(kanji) {
+            return docsMap[kanji] ? docsMap[kanji] : null;
+          })
+          .filter(function(doc) { 
+            return doc !== null;
+          });
       }
 
       entries.empty();
