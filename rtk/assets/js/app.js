@@ -32,7 +32,7 @@ $(function() {
             return doc !== null;
           });
       }
-      
+
       entries.empty();
 
       if (results.length) {
